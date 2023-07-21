@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}StockBot產業一覽{% endblock %}
+    {% block main %}
+
+    <style>
+      .accordion-button:not(.collapsed) {
+        color: #ffffff;
+        background-color: #94bfd6;
+        box-shadow: inset 0 -1px 0 rgba(0,0,0,.125);
+        }
+    </style>
+    <style>
+      a {text-decoration:none;}
+    </style>
+
+    <div class="container title">
+      <h2>玻璃陶瓷</h2>
+    </div>
+    <div class="container wel">
+      
+      <div style="float: right;" class="dropdown">
+        <button class="btn btn-a1 dropdown-toggle" type="button" data-toggle="dropdown">其他產業
+        <span class="caret"></span></button>
+        <!-- <ul class="dropdown-menu n1"> -->
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <!-- <button class="dropdown-item" type="button">Action</button>
+            <button class="dropdown-item" type="button">Another action</button>
+            <button class="dropdown-item" type="button">Something else here</button> -->
+            <li><a href="#" class="dropdown-item" type="button">交通航運</a></li>
+            <li><a href="#" class="dropdown-item" type="button">軟體服務</a></li>
+            <li><a href="#" class="dropdown-item" type="button">製藥</a></li>
+          </div>
+         
+        <!-- </ul> -->
+      </div>
+
+      <div>
+        <!-- <h5>上游</h5> -->
+        <hr class="my-4">
+        <a href="{{ url_for('income', id=1802) }}" name='stock' id='1802' > 1802	台玻</a>&nbsp;&nbsp;
+        <a href="{{ url_for('income', id=1806) }}" name='stock' id='1806' > 1806	冠軍</a>&nbsp;&nbsp;
+        <a href="{{ url_for('income', id=1809) }}" name='stock' id='1809' > 1809	中釉</a>&nbsp;&nbsp;
+        <a href="{{ url_for('income', id=1810) }}" name='stock' id='1810' > 1810	和成</a>&nbsp;&nbsp;
+        <a href="{{ url_for('income', id=1817) }}" name='stock' id='1817' > 1817	凱撒衛</a>&nbsp;&nbsp;
+    
+      </div>
+        
+        
+    
+      </div>
+
+      <!-- 找不到在哪 -->
+    
+    </div>
+    {% endblock %}

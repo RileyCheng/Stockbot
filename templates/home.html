@@ -1,0 +1,275 @@
+{% extends "base.html" %}
+{% block title %}StockBot產業一覽{% endblock %}
+    {% block main %}
+
+<!--Login Messages-->
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+  <div class = 'alert alert-success'>
+  {% for message in messages %}
+    {{ message }}
+  {% endfor %}
+  </div>
+{% endif %}
+{% endwith %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home.css') }}">
+    <div class="cards-list">
+      
+    <style>
+    
+    </style>
+      <a href="{{url_for('category', category='水泥工業')}}" style="text-decoration:none;">
+        <div class="card 1 bg-a1  text-white">
+          <div class="card_image" >  </div>
+          <div class="card_title title-white">
+            <p>水泥工業</p>
+          </div>
+        </div>
+      </a>
+    
+      <a href="{{url_for('category', category='食品工業')}}" style="text-decoration:none;">
+        <div class="card 2 bg-a1  text-white">
+          <div class="card_image"> </div>
+          <div class="card_title title-white">
+            <p>食品工業</p>
+          </div>
+        </div>
+      </a>
+    
+      <a href="{{url_for('category', category='塑膠工業')}}" style="text-decoration:none;">
+        <div class="card 3 bg-a1  text-white">
+          <div class="card_image">  </div>
+          <div class="card_title title-white">
+            <p>塑膠工業</p>
+          </div>
+        </div>
+      </a>
+    
+      <a href="{{url_for('category', category='橡膠工業')}}" style="text-decoration:none;">
+        <div class="card 4 bg-a1  text-white">
+          <div class="card_image">  </div>
+          <div class="card_title title-white">
+            <p>橡膠工業</p>
+          </div>
+        </div>
+      </a>
+    
+    <a href="{{url_for('category', category='半導體業')}}" style="text-decoration:none;">
+      <div class="card 5 bg-a1  text-white">
+        <div class="card_image">  </div>
+        <div class="card_title title-white">
+          <p>半導體業</p>
+        </div>
+      </div>
+    </a>
+  
+    <a href="{{url_for('category', category='電機機械')}}" style="text-decoration:none;">
+      <div class="card 6 bg-a1  text-white">
+        <div class="card_image">  </div>
+        <div class="card_title title-white">
+          <p>電機機械</p>
+        </div>
+      </div>
+    </a>
+  
+    <a href="{{url_for('category', category='電腦及週邊設備業')}}" style="text-decoration:none;">
+      <div class="card 7 bg-a1  text-white">
+        <div class="card_image"> </div>
+        <div class="card_title title-white">
+          <p>電腦及週邊設備業</p>
+        </div>
+      </div>
+    </a>
+  
+    <a href="{{url_for('category', category='食品工業')}}" style="text-decoration:none;">
+      <div class="card 8 bg-a1  text-white">
+        <div class="card_image">  </div>
+        <div class="card_title title-white">
+          <p>電器電纜</p>
+        </div>
+      </div>
+    </a>
+  
+    <a href="{{url_for('category', category='電子零組件業')}}" style="text-decoration:none;">
+      <div class="card 9 bg-a1  text-white">
+        <div class="card_image"> </div>
+        <div class="card_title title-white">
+          <p>電子零組件業</p>
+        </div>
+      </div>
+    </a>
+
+    <a href="{{url_for('category', category='電子通路業')}}" style="text-decoration:none;">
+      <div class="card 10 bg-a1  text-white">
+        <div class="card_image"></div>
+        <div class="card_title title-white">
+          <p>電子通路業</p>
+        </div>
+      </div>
+    </a>
+
+    <a href="{{url_for('category', category='其他電子業')}}" style="text-decoration:none;">
+      <div class="card 11 bg-a1  text-white">
+        <div class="card_image"></div>
+        <div class="card_title title-white">
+          <p>其他電子業</p>
+        </div>
+      </div>
+    </a>
+
+    <a href="{{url_for('category', category='資訊服務業')}}" style="text-decoration:none;">
+      <div class="card 12 bg-a1  text-white">
+        <div class="card_image">  </div>
+        <div class="card_title title-white">
+          <p>資訊服務業</p>
+        </div>
+      </div>
+    </a>
+
+    <a href="{{url_for('category', category='光電業')}}" style="text-decoration:none;">
+      <div class="card 13 bg-a1  text-white">
+        <div class="card_image"> </div>
+        <div class="card_title title-white">
+          <p>光電業</p>
+        </div>
+      </div>
+    </a>
+
+    <a href="{{url_for('category', category='油電燃氣業')}}" style="text-decoration:none;">
+      <div class="card 14 bg-a1  text-white">
+        <div class="card_image"> </div>
+        <div class="card_title title-white">
+          <p>油電燃氣業</p>
+        </div>
+      </div>
+    </a>
+
+    <a href="{{url_for('category', category='鋼鐵工業')}}" style="text-decoration:none;">
+      <div class="card 15 bg-a1  text-white">
+        <div class="card_image"></div>
+        <div class="card_title title-white">
+          <p>鋼鐵工業</p>
+        </div>
+      </div>
+    </a>
+
+    <a href="{{url_for('category', category='建材營造業')}}" style="text-decoration:none;">
+      <div class="card 16 bg-a1  text-white">
+        <div class="card_image"> </div>
+        <div class="card_title title-white">
+          <p>建材營造業</p>
+        </div>
+      </div>
+    </a>
+
+    <a href="{{url_for('category', category='化學工業')}}" style="text-decoration:none;"> 
+      <div class="card 17 bg-a1  text-white">
+        <div class="card_image">  </div>
+        <div class="card_title title-white">
+          <p>化學工業</p>
+        </div>
+      </div>
+    </a>
+
+    <a href="{{url_for('category', category='汽車工業')}}" style="text-decoration:none;">
+      <div class="card 18 bg-a1  text-white">
+        <div class="card_image"> </div>
+        <div class="card_title title-white">
+          <p>汽車工業</p>
+        </div>
+      </div>
+    </a>
+
+    <a href="{{url_for('category', category='航運業')}}" style="text-decoration:none;">
+      <div class="card 19 bg-a1  text-white">
+        <div class="card_image"></div>
+        <div class="card_title title-white">
+          <p>航運業</p>
+        </div>
+      </div>
+    </a>
+
+    <a href="{{url_for('category', category='生技醫療業')}}" style="text-decoration:none;">
+      <div class="card 20 bg-a1  text-white">
+        <div class="card_image"></div>
+        <div class="card_title title-white">
+          <p>生技醫療業</p>
+        </div>
+      </div>
+    </a>
+
+    <a href="{{url_for('category', category='造紙工業')}}" style="text-decoration:none;">
+      <div class="card 21 bg-a1  text-white">
+        <div class="card_image">  </div>
+        <div class="card_title title-white">
+          <p>造紙工業</p>
+        </div>
+      </div>
+    </a>
+
+    <a href="{{url_for('category', category='食品工業')}}" style="text-decoration:none;"> 
+      <div class="card 22 bg-a1  text-white">
+        <div class="card_image"> </div>
+        <div class="card_title title-white">
+          <p>玻璃陶瓷</p>
+        </div>
+      </div>
+    </a>
+
+    <a href="{{url_for('category', category='紡織纖維')}}" style="text-decoration:none;">
+      <div class="card 23 bg-a1  text-white">
+        <div class="card_image"> </div>
+        <div class="card_title title-white">
+          <p>紡織纖維</p>
+        </div>
+      </div>
+    </a>
+
+    <a href="{{url_for('category', category='貿易百貨業')}}" style="text-decoration:none;">
+      <div class="card 24 bg-a1  text-white">
+        <div class="card_image"></div>
+        <div class="card_title title-white">
+          <p>貿易百貨業</p>
+        </div>
+      </div>
+    </a>
+        
+    <a href="{{url_for('category', category='金融保險業')}}" style="text-decoration:none;">
+      <div class="card 25 bg-a1  text-white">
+        <div class="card_image">  </div>
+        <div class="card_title title-white">
+          <p>金融保險業</p>
+        </div>
+      </div>
+    </a>
+
+
+    <a href="{{url_for('category', category='觀光事業')}}" style="text-decoration:none;">
+      <div class="card 26 bg-a1  text-white">
+        <div class="card_image"> </div>
+        <div class="card_title title-white">
+          <p>觀光事業</p>
+        </div>
+      </div>
+    </a>
+
+    <a href="{{url_for('category', category='通信網路業')}}" style="text-decoration:none;"> 
+      <div class="card 27 bg-a1  text-white">
+        <div class="card_image">  </div>
+        <div class="card_title title-white">
+          <p>通信網路業</p>
+        </div>
+      </div>
+    </a>
+
+    <a href="{{url_for('category', category='其他業')}}" style="text-decoration:none;">
+      <div class="card 28 bg-a1  text-white">
+        <div class="card_image">  </div>
+        <div class="card_title title-white">
+          <p>其他業</p>
+        </div>
+      </div>
+    </a>
+  </div>      
+</div>
+    {% endblock %}

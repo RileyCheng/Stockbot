@@ -1,0 +1,476 @@
+{% extends "base.html" %}
+{% block title %}StockBot個股資訊{% endblock %}
+    {% block main %}
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/tab.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/table.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/custom.css') }}">
+   <div class="container title">
+      {% for s in s_name %}
+        <h2> {{s[0]}} {{s[1]}}</h2>
+      {% endfor %}
+    </div>
+
+    <div class="container wel" >
+      <h3>基本資訊</h3>
+  <hr class="my-4">
+  <table class="table table-bordered " bgcolor=#bccbe9 border="1" >
+  <tbody>
+    <tr>
+      {% for i1 in i1 %}
+      <th scope="row" colspan="2">{{i1.Date}}年</th>
+     
+    {% endfor %}
+      
+    </tr>
+   
+    {% for i1 in i1 %}
+    <tr >
+      <th scope="row" >殖利率(單位:%)</th>
+
+      <td>{{i1.d_yield}}</td>
+     
+    </tr>
+    {%endfor%}
+    <tr>
+      <th scope="row">歷年股利</th>
+      {% for i1 in i1 %}
+      
+      <td>{{i1.Dividends}}</td>
+     
+    </tr>
+    {%endfor%}
+    <tr>
+      <th scope="row">EPS(單位:元)</th>
+      {% for i5 in i5 %}
+   
+      <td>{{i5.F7}}</td>
+      {%endfor%}
+     
+    </tr>
+    
+    <tr>
+     
+      <th scope="row">本益比</th>
+      {% for i2 in i2 %}
+    
+      <td>{{i2.pe}}</td>
+      {%endfor%}
+    </tr>
+ 
+    <tr>
+      <th scope="row">營收</th>
+      {% for i4 in i4 %}
+     
+      <td>{{i4.income}}</td>
+      {%endfor%}
+     
+    </tr>
+    <tr>
+      <th scope="row">淨值</th>
+      {% for i5 in i5 %}
+     
+      <td>{{i5.F8}}</td>
+      {%endfor%}
+    </tr>
+    <tr>
+      <th scope="row">總市值(單位:百億)</th>
+      {% for i3 in i3 %}
+ 
+      <td> {{i3.market_value}}</td>
+    
+    </tr>
+    {%endfor%}
+    <tr>
+      <th scope="row">股本</th>
+      {% for i1 in i1 %}
+  
+      <td> {{i1.capital}}</td>
+   
+    </tr>
+    {%endfor%}
+
+    
+    
+  </tbody>
+</table>
+<div class="container">
+  <button onclick="window.location.href='{{ url_for("info",id=id) }}'">查看歷年資料</button>
+  </div>
+</div>
+
+
+
+
+    <div class="container">
+        <h3>財務</h3>
+    <hr class="my-4">
+    <div class="wrapper">
+      <div class="buttonWrapper">
+        <button class="tab-button active" style="border-top-left-radius: 10px;" data-id="home">損益表</button>
+        <button class="tab-button " data-id="about"> 資產負債表</button>
+        <button class="tab-button " style="border-top-right-radius: 10px;" data-id="contact">現金流量表</button>
+      </div>
+      
+        <div class="content active" id="home" >
+          <table class="table table-hover table-responsive">
+            <thead>
+              <tr>
+                <th scope="col">年度</th>
+                <th scope="col">營業收入</th>
+                <th scope="col">營業成本</th>
+                <th scope="col">營業毛利</th>
+                <th scope="col">營業費用</th>
+                <th scope="col">營業利益</th>
+                <th scope="col">業外損益</th>
+                <th scope="col">稅前淨利</th>
+                <th scope="col">稅後淨利</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for income in income.items %}
+   
+                <tr>
+                           
+                             <td>{{income.quarter}}</td>
+                             <td>{{income.income }}</td>
+                             <td>{{income.cost}}</td>
+                             <td>{{income.gross_profit}}</td>
+                             <td>{{income.operating_expenses}}</td>
+                             <td>{{income.operating_profit}}</td>
+                             <td>{{income.Non_operating_income}}</td>
+                             <td>{{income.profit_before_tax}}</td>
+                             <td>{{income.profit_after_tax}}</td>
+                         </tr>
+   
+            {% endfor %}
+        </tbody>
+        
+    </table>
+    <div class="container">
+      <ul class="pagination" >
+       
+          {% if income.has_prev %}
+          <li class="page-item"><a class="page-link" href="{{ url_for('income',id=id,page=income.prev_num) }}">上一頁</a></li>
+          {% else %}
+          <li class="page-item disabled"><span class="page-link">上一頁</span>
+          {% endif %}
+          </li>
+    
+            
+          {% for page_num in income.iter_pages(left_edge=1, right_edge=1,left_current=1, right_current=2) %}
+          {% if page_num %}
+          
+          <li class="page-item"><a class="page-link" href="{{ url_for('income',id=id,page=page_num) }}">{{ page_num }}</a></li>
+          {% else %}
+          <li class="page-item disabled" id="example_ellipsis"><a href="#" class="page-link">…</a></li> 
+          
+          {% endif %}
+          {% endfor %}
+          
+          {% if income.has_next %}
+          <li class="page-item"><a class="page-link" href="{{ url_for('income', id=id,page=income.next_num) }}">下一頁</a></li>
+          {% else %}
+          <li class="page-item disabled"><span class="page-link">下一頁</span>
+          {% endif %}
+          
+          </ul>
+        </div>
+
+
+</div>
+
+<div class="content" id="about">
+    <table class="table table-hover table-responsive2">
+      <thead>
+        <tr>
+          <th scope="col">年度</th>
+          <th scope="col">資產總額</th>
+          <th scope="col">負債總額</th>
+          <th scope="col">股東權益報酬</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for balance in balance.items %}
+   
+   <tr>
+                <td>{{balance.quarter}}</td>
+                <td>{{balance.asset}}</td>
+                <td>{{balance.liability}}</td>
+                <td>{{balance.stockholder_equity}}</td>
+                
+            </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+
+    <div class="container">
+      <ul class="pagination" >
+       
+          {% if balance.has_prev %}
+          <li class="page-item"><a class="page-link" href="{{ url_for('income',id=id,page=balance.prev_num) }}">上一頁</a></li>
+          {% else %}
+          <li class="page-item disabled"><span class="page-link">上一頁</span>
+          {% endif %}
+          </li>
+    
+            
+          {% for page_num in balance.iter_pages(left_edge=1, right_edge=1,left_current=1, right_current=2) %}
+          {% if page_num %}
+          
+          <li class="page-item"><a class="page-link" href="{{ url_for('income',id=id,page=page_num) }}">{{ page_num }}</a></li>
+          {% else %}
+          <li class="page-item disabled" id="example_ellipsis"><a href="#" class="page-link">…</a></li> 
+          
+          {% endif %}
+          {% endfor %}
+          
+          {% if balance.has_next %}
+          <li class="page-item"><a class="page-link" href="{{ url_for('income', id=id,page=balance.next_num) }}">下一頁</a></li>
+          {% else %}
+          <li class="page-item disabled"><span class="page-link">下一頁</span>
+          {% endif %}
+          
+          </ul>
+        </div>
+
+    </div>
+
+    <div class="content" id="contact">
+        <table class="table table-hover table-responsive">
+          <thead>
+            <tr>
+              <th scope="col">年度</th>
+              <th scope="col">營業毛利率</th>
+              <th scope="col">營業利益率</th>
+              <th scope="col">稅後淨利率</th>
+              <th scope="col">每股稅後盈餘 (元)</th>
+              <th scope="col">每股淨值(元)</th>
+              <th scope="col">股東權益報酬率(當季)</th>
+              <th scope="col">流動資產(%)</th>
+              <th scope="col">流動負債(%)</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for finance in finance.items %}
+   
+            <tr>
+                         
+                         <td>{{finance.quarter}}</td>
+                         <td>{{finance.F2}}</td>
+                         <td>{{finance.F3}}</td>
+                         <td>{{finance.F5}}</td>
+                         <td>{{finance.F7}}</td>
+                         <td>{{finance.F8}}</td>
+                         <td>{{finance.F9}}</td>
+                         <td>{{finance.F27}}</td>
+                         <td>{{finance.F51}}</td>
+                     </tr>
+           
+            {% endfor %}
+          </tbody>
+        </table>
+        
+    <div class="container">
+      <ul class="pagination" id='pagination'>
+       
+          {% if finance.has_prev %}
+          <li class="page-item"><a class="page-link" href="{{ url_for('income',id=id,page=finance.prev_num) }}">上一頁</a></li>
+          {% else %}
+          <li class="page-item disabled"><span class="page-link">上一頁</span>
+          {% endif %}
+          </li>
+    
+            
+          {% for page_num in finance.iter_pages(left_edge=1, right_edge=1,left_current=1, right_current=2) %}
+          {% if page_num %}
+          
+          <li class="page-item"><a class="page-link" href="{{ url_for('income',id=id,page=page_num) }}">{{ page_num }}</a></li>
+          {% else %}
+          <li class="page-item disabled" id="example_ellipsis"><a href="#" class="page-link">…</a></li> 
+          
+          {% endif %}
+          {% endfor %}
+          
+          {% if finance.has_next %}
+          <li class="page-item"><a class="page-link" href="{{ url_for('income', id=id,page=finance.next_num) }}">下一頁</a></li>
+          {% else %}
+          <li class="page-item disabled"><span class="page-link">下一頁</span>
+          {% endif %}
+          
+          </ul>
+        </div>
+
+    
+      </div>
+</div>
+      <br><br><br><br>
+      <div class="container">
+        <h3>籌碼</h3>
+    <hr class="my-4">
+
+    <table class="table table-hover table-responsive2 " style="width:100%">
+        <thead>
+            <tr>
+               
+                <th>日期</th>
+                <th>外資</th>
+                <th>投信</th>
+                <th>自營商</th>
+                <th>融資</th>
+                <th>融券</th>
+            </tr>
+        </thead>
+        <tbody>
+   {% for bargain in bargain.items %}
+   
+   <tr>
+                <td>{{ bargain.b_date}}</td>
+                <td>{{ bargain.f_investor}}</td>
+                <td>{{ bargain.trust }}</td>
+                <td>{{ bargain.dealer}}</td>
+                <td>{{ bargain.lending}}</td>
+                <td>{{ bargain.borrowing}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        
+    </table>
+    <div class="container" >
+      <ul class="pagination" id='pagination'>
+       
+          {% if bargain.has_prev %}
+          <li class="page-item"><a class="page-link" href="{{ url_for('income',id=id,page=bargain.prev_num) }}">上一頁</a></li>
+          {% else %}
+          <li class="page-item disabled"><span class="page-link">上一頁</span>
+          {% endif %}
+          </li>
+    
+            
+          {% for page_num in bargain.iter_pages(left_edge=1, right_edge=1,left_current=1, right_current=2) %}
+          {% if page_num %}
+          
+          <li class="page-item"><a class="page-link" href="{{ url_for('income',id=id,page=page_num) }}">{{ page_num }}</a></li>
+          {% else %}
+          <li class="page-item disabled" id="example_ellipsis"><a href="#" class="page-link">…</a></li> 
+          
+          {% endif %}
+          {% endfor %}
+          
+          {% if bargain.has_next %}
+          <li class="page-item"><a class="page-link" href="{{ url_for('income', id=id,page=bargain.next_num) }}">下一頁</a></li>
+          {% else %}
+          <li class="page-item disabled"><span class="page-link">下一頁</span>
+          {% endif %}
+          
+          </ul>
+        </div>
+
+    
+ </div>
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+<br><br><br><br>
+
+<div class="container">
+        <h3>技術分析</h3>
+    <hr class="my-4">
+    <select class="selectpicker" multiple title="選擇均線" data-width="45%">
+        <option>MA5</option>
+        <option>MA10</option>
+        <option>MA20</option>
+        <option>MA60</option>
+    </select>
+    <select class="selectpicker" multiple title="選擇指標" data-width="45%">
+        <option>KD</option>
+        <option>RSI</option>
+        <option>MACD</option>
+    </select>
+    <br><br>
+        <button type="button" class="btn btn-secondary">確認</button>
+    <br><br>
+    
+</div>
+
+    
+  </div>
+  <style>
+  table{
+      width:100%;
+  }
+  #example_filter{
+      float:right;
+  }
+  #example_paginate{
+      float:right;
+  }
+  label {
+      display: inline-flex;
+      margin-bottom: .5rem;
+      margin-top: .5rem;
+      
+  }
+  
+  </style>
+  <script>
+  function checkAll(bx) {
+    var cbs = document.getElementsByTagName('input');
+    for(var i=0; i < cbs.length; i++) {
+      if(cbs[i].type == 'checkbox') {
+        cbs[i].checked = bx.checked;
+      }
+    }
+  }
+  </script>  
+
+<script type="text/javascript">
+  const tabs = document.querySelector(".wrapper");
+  const tabButton = document.querySelectorAll(".tab-button");
+  const contents = document.querySelectorAll(".content");
+ 
+
+  tabs.onclick = (e) => {
+      const id = e.target.dataset.id;
+  
+      if (id) {
+          tabButton.forEach((btn) => {
+            btn.classList.remove("active");
+       
+          
+          });
+          e.target.classList.add("active");
+      
+          contents.forEach((content) => {
+   
+            content.classList.remove("active");
+   
+          });
+          const element = document.getElementById(id);
+          element.classList.add("active");
+    
+        }  
+       
+   };
+
+
+  </script>
+
+  
+  
+    {% endblock %}

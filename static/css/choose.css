@@ -1,0 +1,40 @@
+.dual-list .list-group {
+    margin-top: 8px;
+  }
+  
+  .list-left li,
+  .list-right li {
+    cursor: pointer;
+  }
+  
+  .list-arrows {
+    padding-top: 100px;
+  }
+  
+  .list-arrows button {
+    margin-bottom: 20px;
+  }
+
+  .badge-blue {
+    display: inline-block;
+    padding: 3px 7px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    background-color: #7aaac4;
+    border-radius: 0.25rem;
+  }
+
+  /* @media (max-width: 992px) {
+    .flex {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+} */

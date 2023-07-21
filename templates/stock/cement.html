@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% block title %}StockBot產業一覽{% endblock %}
+    {% block main %}
+
+    <style>
+      .accordion-button:not(.collapsed) {
+        color: #ffffff;
+        background-color: #94bfd6;
+        box-shadow: inset 0 -1px 0 rgba(0,0,0,.125);
+        }
+    </style>
+    <style>
+      a {text-decoration:none;}
+    </style>
+
+    <div class="container title">
+      <h2>水泥工業</h2>
+    </div>
+    <div class="container wel">
+      
+      <div style="float: right;" class="dropdown">
+        <button class="btn btn-a1 dropdown-toggle" type="button" data-toggle="dropdown">其他產業
+        <span class="caret"></span></button>
+        <!-- <ul class="dropdown-menu n1"> -->
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <!-- <button class="dropdown-item" type="button">Action</button>
+            <button class="dropdown-item" type="button">Another action</button>
+            <button class="dropdown-item" type="button">Something else here</button> -->
+            <li><a href="#" class="dropdown-item" type="button">交通航運</a></li>
+            <li><a href="#" class="dropdown-item" type="button">軟體服務</a></li>
+            <li><a href="#" class="dropdown-item" type="button">製藥</a></li>
+          </div>
+         
+        <!-- </ul> -->
+      </div>
+
+     
+      
+    
+      <div>
+        <h5>上游</h5>
+        <hr class="my-4">
+          <a href="{{ url_for('income', id=1101) }}" name='stock' id='1101'> 1101 台泥</a>&nbsp;&nbsp;
+          <a href="{{ url_for('income', id=1102) }}" name='stock' id='1102' > 1102 亞泥</a>&nbsp;&nbsp;
+          <a href="{{ url_for('income', id=1103) }}" name='stock' id='1103' > 1103 嘉泥</a>&nbsp;&nbsp;
+          <a href="{{ url_for('income', id=1104) }}" name='stock' id='1104' > 1104 環泥</a>&nbsp;&nbsp;
+          <a href="{{ url_for('income', id=1108) }}" name='stock' id='1108' > 1108 幸福</a>&nbsp;&nbsp;
+          <a href="{{ url_for('income', id=1109) }}" name='stock' id='1109' > 1109 信大</a>&nbsp;&nbsp;
+          <a href="{{ url_for('income', id=1110) }}" name='stock' id='1110' > 1110 東泥</a>&nbsp;&nbsp;
+      </div>
+        
+      <br><br>
+      <div method="post">
+        <h5>中游</h5>
+        <hr class="my-4">
+          <a href="{{ url_for('income', id=1101) }}" name='stock' id='1101'> 1101 台泥</a>&nbsp;&nbsp;
+          <a href="{{ url_for('income', id=1104) }}" name='stock' id='1104' > 1104 環泥</a>&nbsp;&nbsp;
+          <a href="{{ url_for('income', id=1108) }}" name='stock' id='1108' > 1108 幸福</a>&nbsp;&nbsp;
+          <a href="{{ url_for('income', id=1109) }}" name='stock' id='1109' > 1109 信大</a>&nbsp;&nbsp;
+      </div>
+      <br><br>
+      <div>
+        <h5>下游</h5>
+        <hr class="my-4">
+          <a href="{{ url_for('income', id=1101) }}" name='stock' id='1101'> 1101 台泥</a>&nbsp;&nbsp;
+          <a href="{{ url_for('income', id=1104) }}" name='stock' id='1104' > 1104 環泥</a>&nbsp;&nbsp;
+          <a href="{{ url_for('income', id=1108) }}" name='stock' id='1108' > 1108 幸福</a>&nbsp;&nbsp;
+          <a href="{{ url_for('income', id=1109) }}" name='stock' id='1109' > 1109 信大</a>&nbsp;&nbsp;
+        <!-- {% for s in stock %}
+          <a href="{{ url_for('home2') }}" name='stock' value='{{ s[0] }}' > {{ s[0] }} {{ s[1] }}</a>&nbsp;&nbsp;
+        {% endfor %} -->
+
+      </div>
+    </div>
+      <!-- <div class="accordion accordion-flush" id="accordionFlushExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingOne">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                IP/IC設計代工服務
+              </button>
+            </h2>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body"><a href="/info">3035 智原</a>&nbsp;&nbsp;<a href="#">3443 創意</a>&nbsp;&nbsp;<a href="#">3529 力旺</a></div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                磁碟儲存控制器IC
+              </button>
+            </h2>
+            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body"><a href="#">3035 智原</a>&nbsp;</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                平面顯示器驅動IC
+              </button>
+            </h2>
+            <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body"><a href="#">3035 智原</a>&nbsp;</div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+  
+
+    {% endblock %}

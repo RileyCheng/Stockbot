@@ -1,0 +1,236 @@
+{% extends "base.html" %}
+{% block title %}StockBot個股資訊{% endblock %}
+    {% block main %}
+    <div class="container title">
+      {% for s in s_name %}
+        <h2> {{s[0]}} {{s[1]}}</h2>
+      {% endfor %}
+    </div>
+
+   
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/tab.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/table.css') }}">
+   
+    <!-- <div class="container" textalign='center'>
+      <h3 class="form-text">請輸入想查詢的股票號</h3>
+      <input type="text" class="form-control"  name="id" placeholder="輸入股票號">
+      <button type="submit" class="btn btn-secondary">確認</button>
+    </div> -->
+
+    <!-- <div class="container wel">
+      <h3>基本資訊</h3>
+  <hr class="my-4">
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <th width="15%" scope="row">公司名稱</th>
+        <td>智原</td>
+      </tr>
+      <tr>
+        <th width="15%" scope="row">英文簡稱</th>
+        <td>Faraday</td>
+      </tr>
+      <tr>
+        <th width="15%" scope="row">成立時間</th>
+        <td>1993/06/10</td>
+      </tr>
+      <tr>
+        <th width="15%" scope="row">上市時間</th>
+        <td>2002/08/26</td>
+      </tr>
+      <tr>
+        <th width="15%" scope="row">股本</th>
+        <td>2,485,503,130</td>
+      </tr>
+      <tr>
+        <th width="15%" scope="row">市值(百萬)</th>
+        <td>59,403.45</td>
+      </tr>
+      <tr>
+        <th width="15%" scope="row">所屬集團</th>
+        <td>聯電</td>
+      </tr>
+      <tr>
+        <th width="15%" scope="row">主要經營業務</th>
+        <td>特殊應用積體電路設計(ASIC)
+            特殊應用積體電路設計用矽智財及系統平台(IP & System Platform)
+            特殊應用積體電路電子設計、自動化軟體工具(ASIC EDA Tools)</td>
+      </tr>
+    </tbody>
+  </table>
+</div> -->
+
+
+  <div class="container wel">
+        <h3>財務</h3>
+    <hr class="my-4">
+    <div class="wrapper">
+      <div class="buttonWrapper">
+        <button class="tab-button active" style="border-top-left-radius: 10px;" data-id="home">損益表</button>
+        <button class="tab-button" data-id="about">資產負債表</button>
+        <button class="tab-button" style="border-top-right-radius: 10px;" data-id="contact">現金流量表</button>
+      </div>
+      <div class="contentWrapper">
+        <div class="content active" id="home">
+          <table class="table table-hover table-responsive">
+            <thead>
+              <tr>
+                <th scope="col">年度</th>
+                <th scope="col">營業收入</th>
+                <th scope="col">營業成本</th>
+                <th scope="col">營業毛利</th>
+                <th scope="col">營業費用</th>
+                <th scope="col">營業利益</th>
+                <th scope="col">業外損益</th>
+                <th scope="col">稅前淨利</th>
+                <th scope="col">稅後淨利</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for f in finance %}
+              <tr>
+                <th scope="row">{{ f[1] }}</th>
+                <td>{{ f[2] }}</td>
+                <td>{{ f[3] }}</td>
+                <td>{{ f[4] }}</td>
+                <td>{{ f[5] }}</td>
+                <td>{{ f[6] }}</td>
+                <td>{{ f[7] }}</td>
+                <td>{{ f[8] }}</td>
+                <td>{{ f[9] }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <div class="content" id="about">
+          <table class="table table-hover table-responsive2">
+            <thead>
+              <tr>
+                <th scope="col">年度</th>
+                <th scope="col">資產總額</th>
+                <th scope="col">負債總額</th>
+                <th scope="col">股東權益報酬</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for f1 in finance2 %}
+              <tr>
+                <th scope="row">{{ f1[1] }}</th>
+                <td>{{ f1[2] }}</td>
+                <td>{{ f1[3] }}</td>
+                <td>{{ f1[4] }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <div class="content" id="contact">
+          <table class="table table-hover table-responsive">
+            <thead>
+              <tr>
+                <th scope="col">年度</th>
+                <th scope="col">營業毛利率</th>
+                <th scope="col">營業利益率</th>
+                <th scope="col">稅後淨利率</th>
+                <th scope="col">每股稅後盈餘 (元)</th>
+                <th scope="col">每股淨值(元)</th>
+                <th scope="col">股東權益報酬率(當季)</th>
+                <th scope="col">流動資產(%)</th>
+                <th scope="col">流動負債(%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for f2 in finance3 %}
+              <tr>
+                <th scope="row">{{ f2[0] }}</th>
+                <td>{{ f2[2] }}</td>
+                <td>{{ f2[3] }}</td>
+                <td>{{ f2[5] }}</td>
+                <td>{{ f2[7] }}</td>
+                <td>{{ f2[8] }}</td>
+                <td>{{ f2[9] }}</td>
+                <td>{{ f2[27] }}</td>
+                <td>{{ f2[51] }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>   
+  </div>
+
+
+<div class="container wel">
+        <h3>技術分析</h3>
+    <hr class="my-4">
+    <select class="selectpicker" multiple title="選擇均線" data-width="45%">
+        <option>MA5</option>
+        <option>MA10</option>
+        <option>MA20</option>
+        <option>MA60</option>
+    </select>
+    <select class="selectpicker" multiple title="選擇指標" data-width="45%">
+        <option>KD</option>
+        <option>RSI</option>
+        <option>MACD</option>
+    </select>
+    <br><br>
+        <button type="button" class="btn btn-secondary">確認</button>
+    <br><br>
+    
+</div>
+
+<script type="text/javascript">
+  const tabs = document.querySelector(".wrapper");
+  const tabButton = document.querySelectorAll(".tab-button");
+  const contents = document.querySelectorAll(".content");
+  
+  tabs.onclick = (e) => {
+      const id = e.target.dataset.id;
+      if (id) {
+          tabButton.forEach((btn) => {
+            btn.classList.remove("active");
+          });
+          e.target.classList.add("active");
+      
+          contents.forEach((content) => {
+            content.classList.remove("active");
+          });
+          const element = document.getElementById(id);
+          element.classList.add("active");
+        }
+   };
+  </script>
+<!-- <div class="container wel">
+        <h3>籌碼</h3>
+    <hr class="my-4">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">日期</th>
+                <th scope="col">外資</th>
+                <th scope="col">投信</th>
+                <th scope="col">自營商</th>
+                <th scope="col">融資</th>
+                <th scope="col">融券</th>
+              
+            </tr>
+        </thead>
+        <tbody>
+            {% for b in bargain %}
+            <tr>
+                <th scope="row">{{ b[1] }}</th>
+                <td>{{ b[2] }}</td>
+                <td>{{ b[3] }}</td>
+                <td>{{ b[4] }}</td>
+                <td>{{ b[5] }}</td>
+                <td>{{ b[6] }}</td>
+            
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div> -->
+    {% endblock %}

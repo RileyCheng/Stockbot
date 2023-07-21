@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block title %}StockBot個股資訊{% endblock %}
+    {% block main %}
+<body>
+   
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/tab.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/table.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/custom.css') }}">
+    <div class="container">
+        {% for s in s_name %}
+          <h2> {{s[0]}} {{s[1]}}</h2>
+        {% endfor %}
+        <h3>歷年基本資訊</h3>
+    <hr class="my-4">
+      </div>
+      <div class="container" >
+        <div class="wrapper">
+  
+    <table class="table table-hover table-responsive" bgcolor=#bccbe9>
+    <tbody>
+       <tr>
+                <th scope="col">年度</th>
+                {% for i1 in i1%}
+                <td >{{i1["Date"]}}年</td>
+                {%endfor%} </tr>
+            <tr>
+                <th scope="col">殖利率(單位:%)</th>
+                {% for i1 in i1%}
+                <td >{{i1["d_yield"]}}</td>
+                {%endfor%}
+            </tr> <tr>
+
+                
+                <th scope="col">歷年股利</th>
+                {% for i1 in i1%}
+                <td >{{i1["Dividends"]}}</td> 
+                {%endfor%}</tr>
+                <tr>
+                    <th scope="row">EPS(單位:元)</th>
+                    {% for i5 in i5 %}
+                 
+                    <td>{{i5.F7}}</td>
+                    {%endfor%}</tr>
+                    <tr>
+                    <th scope="col">本益比</th>
+                {%for i2 in i2 %}
+                <td >{{i2["pe"]}}</td> 
+                        {% endfor%}</tr>
+                        <tr>
+                            <th scope="row">營收</th>
+                            {% for i4 in i4 %}
+                           
+                            <td>{{i4.income}}</td>
+                            {%endfor%}
+                           
+                          </tr>
+                          <tr>
+                            <th scope="row">淨值</th>
+                            {% for i5 in i5 %}
+                           
+                            <td>{{i5.F8}}</td>
+                            {%endfor%}
+                          </tr>
+                          <tr>
+                            <th scope="row">總市值(單位:百億)</th>
+                            {% for i3 in i3 %}
+                       
+                            <td> {{i3.market_value}}</td>
+                            {%endfor%}
+                          </tr>
+                         
+                          <tr>
+                            <th scope="row">股本</th>
+                            {% for i1 in i1 %}
+                        
+                            <td> {{i1.capital}}</td>
+                            {%endfor%}
+                          </tr> 
+       
+            </tr>
+       
+   
+    </tbody>
+  </table>
+
+ </div>
+</div>
+</body>
+  {% endblock %}

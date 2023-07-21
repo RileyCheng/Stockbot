@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block title %}StockBot產業一覽{% endblock %}
+    {% block main %}
+
+    <style>
+      .accordion-button:not(.collapsed) {
+        color: #ffffff;
+        background-color: #94bfd6;
+        box-shadow: inset 0 -1px 0 rgba(0,0,0,.125);
+        }
+    </style>
+    <style>
+      a {text-decoration:none;}
+    </style>
+
+    <div class="container title">
+      <h2>造紙工業</h2>
+    </div>
+    <div class="container wel">
+      
+      <div style="float: right;" class="dropdown">
+        <button class="btn btn-a1 dropdown-toggle" type="button" data-toggle="dropdown">其他產業
+        <span class="caret"></span></button>
+        <!-- <ul class="dropdown-menu n1"> -->
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <!-- <button class="dropdown-item" type="button">Action</button>
+            <button class="dropdown-item" type="button">Another action</button>
+            <button class="dropdown-item" type="button">Something else here</button> -->
+            <li><a href="#" class="dropdown-item" type="button">交通航運</a></li>
+            <li><a href="#" class="dropdown-item" type="button">軟體服務</a></li>
+            <li><a href="#" class="dropdown-item" type="button">製藥</a></li>
+          </div>
+         
+        <!-- </ul> -->
+      </div>
+    
+      <div>
+        <h5>上游</h5>
+        <hr class="my-4">
+        <a href="{{ url_for('income', id=1904) }}" name='stock' id='1904' > 1904	正隆</a>&nbsp;&nbsp;
+        <a href="{{ url_for('income', id=1905) }}" name='stock' id='1905' > 1905	華紙</a>&nbsp;&nbsp;
+        <a href="{{ url_for('income', id=1909) }}" name='stock' id='1909' > 1909	榮成</a>&nbsp;&nbsp;
+        <a href="{{ url_for('income', id=6790) }}" name='stock' id='6790' > 6790	永豐實</a>&nbsp;&nbsp;
+      </div>
+        
+      <br><br>
+      <div method="post">
+        <h5>中游</h5>
+        <hr class="my-4">
+        <a href="{{ url_for('income', id=1903) }}" name='stock' id='1903' > 1903	士紙</a>&nbsp;&nbsp;
+        <a href="{{ url_for('income', id=1904) }}" name='stock' id='1904' > 1904	正隆</a>&nbsp;&nbsp;
+        <a href="{{ url_for('income', id=1905) }}" name='stock' id='1905' > 1905	華紙</a>&nbsp;&nbsp;
+        <a href="{{ url_for('income', id=1907) }}" name='stock' id='1907' > 1907	永豐餘</a>&nbsp;&nbsp;
+        <a href="{{ url_for('income', id=6790) }}" name='stock' id='6790' > 6790	永豐實</a>&nbsp;&nbsp;
+      </div>
+      <br><br>
+      <div>
+        <h5>下游</h5>
+        <hr class="my-4">
+        <a href="{{ url_for('income', id=1904) }}" name='stock' id='1904' > 1904	正隆</a>&nbsp;&nbsp;
+        <a href="{{ url_for('income', id=1905) }}" name='stock' id='1905' > 1905	華紙</a>&nbsp;&nbsp;
+        <a href="{{ url_for('income', id=1906) }}" name='stock' id='1906' > 1906	寶隆</a>&nbsp;&nbsp;
+        <a href="{{ url_for('income', id=1907) }}" name='stock' id='1907' > 1907	永豐餘</a>&nbsp;&nbsp;
+        <a href="{{ url_for('income', id=6790) }}" name='stock' id='6790' > 6790	永豐實</a>&nbsp;&nbsp;
+      </div>
+
+      <!-- 找不到在哪 -->
+    
+    </div>
+    {% endblock %}

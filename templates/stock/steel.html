@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% block title %}StockBot產業一覽{% endblock %}
+    {% block main %}
+
+    <style>
+      .accordion-button:not(.collapsed) {
+        color: #ffffff;
+        background-color: #94bfd6;
+        box-shadow: inset 0 -1px 0 rgba(0,0,0,.125);
+        }
+    </style>
+    <style>
+      a {text-decoration:none;}
+    </style>
+
+    <div class="container title">
+      <h2>鋼鐵工業</h2>
+    </div>
+    <div class="container wel">
+      
+      <div style="float: right;" class="dropdown">
+        <button class="btn btn-a1 dropdown-toggle" type="button" data-toggle="dropdown">其他產業
+        <span class="caret"></span></button>
+        <ul class="dropdown-menu n1">
+          <li><a href="#">交通航運</a></li>
+          <li><a href="#">軟體服務</a></li>
+          <li><a href="#">製藥</a></li>
+        </ul>
+      </div>
+   
+      <hr class="my-4">
+      <div>
+        <h5>上游</h5>
+        <hr class="my-4">
+          <a href="{{ url_for('income', id=2002) }}" name='stock' id='2002'> 2002中鋼</a>&nbsp;&nbsp;
+          <a href="{{ url_for('income', id=2006) }}" name='stock' id='2006' > 2006東和鋼鐵</a>&nbsp;&nbsp;
+          <a href="{{ url_for('income', id=2015) }}" name='stock' id='2015' > 2015豐興</a>&nbsp;&nbsp;
+          <a href="{{ url_for('income', id=2028) }}" name='stock' id='2028' > 2028威致</a>&nbsp;&nbsp;
+
+         
+        </div>
+        
+      <br><br>
+      <div method="post">
+        <h5>中游</h5>
+        <hr class="my-4">
+          <a href="{{ url_for('income', id=2002) }}" name='stock' id='2002'> 2002中鋼</a>&nbsp;&nbsp;
+          <a href="{{ url_for('income', id=2006) }}" name='stock' id='2006' > 2006東和鋼鐵</a>&nbsp;&nbsp;
+          <a href="{{ url_for('income', id=2007) }}" name='stock' id='2007' > 2007燁興</a>&nbsp;&nbsp;
+          <a href="{{ url_for('income', id=2008) }}" name='stock' id='2008' >2008高興昌 </a>&nbsp;&nbsp;
+          <a href="{{ url_for('income', id=2009) }}" name='stock' id='2009' >  2009第一銅</a>&nbsp;&nbsp;
+          <a href="{{ url_for('income', id=2010) }}" name='stock' id='2010' > 2010春源</a>&nbsp;&nbsp;
+          <a href="{{ url_for('income', id=2012) }}" name='stock' id='2012' > 2012春雨</a>&nbsp;&nbsp;
+          <a href="{{ url_for('income', id=2014) }}" name='stock' id='2014'>2014	中鴻 </a>&nbsp;&nbsp;
+          <a href="{{ url_for('income', id=2015) }}" name='stock' id='2015'> 2015豐興</a>&nbsp;&nbsp;
+          <a href="{{ url_for('income', id=2017) }}" name='stock' id='2017' > 2017官田鋼</a>&nbsp;&nbsp;
+          <a href="{{ url_for('income', id=2020) }}" name='stock' id='2020'> 2020美亞</a>&nbsp;&nbsp;
+          <a href="{{ url_for('income', id=2022) }}" name='stock' id='2022'> 2022聚亨</a>&nbsp;&nbsp; 
+          <a href="{{ url_for('income', id=2023) }}" name='stock' id='2023'> 2023燁輝</a>&nbsp;&nbsp; 
+          <a href="{{ url_for('income', id=2025) }}" name='stock' id='2025'>2025	千興</a>&nbsp;&nbsp; 
+          <a href="{{ url_for('income', id=2027) }}" name='stock' id='2027'> 2027大成鋼</a>&nbsp;&nbsp; 
+          <a href="{{ url_for('income', id=2028) }}" name='stock' id='2028'> 2028威致</a>&nbsp;&nbsp;
+          <a href="{{ url_for('income', id=2029) }}" name='stock' id='2029'> 2029盛餘</a>&nbsp;&nbsp; 
+          <a href="{{ url_for('income', id=2030) }}" name='stock' id='2030'> 2030彰源</a>&nbsp;&nbsp; 
+          <a href="{{ url_for('income', id=2031) }}" name='stock' id='2031'>2031	新光鋼</a>&nbsp;&nbsp; 
+          <a href="{{ url_for('income', id=2032) }}" name='stock' id='2032'> 2032新鋼</a>&nbsp;&nbsp; 
+          <a href="{{ url_for('income', id=2034) }}" name='stock' id='2034'> 2034允強</a>&nbsp;&nbsp;
+          <a href="{{ url_for('income', id=2038) }}" name='stock' id='2038'> 2038海光</a>&nbsp;&nbsp; 
+          <a href="{{ url_for('income', id=2039) }}" name='stock' id='2039'> 2069運錩</a>&nbsp;&nbsp; 
+
+      </div>
+      <br><br>    
+  
+
+
+      <div>
+        <h5>下游</h5>
+        <hr class="my-4">
+        <a href="{{ url_for('income', id=2010) }}" name='stock' id='2010'> 2010	春源</a>&nbsp;&nbsp;
+        <a href="{{ url_for('income', id=2012) }}" name='stock' id='2012' > 2012	春雨</a>&nbsp;&nbsp;
+        <a href="{{ url_for('income', id=2013) }}" name='stock' id='2013'> 2013	中鋼構</a>&nbsp;&nbsp;
+        <a href="{{ url_for('income', id=2015) }}" name='stock' id='2015' > 2015	豐興</a>&nbsp;&nbsp;
+        <a href="{{ url_for('income', id=2017) }}" name='stock' id='2017' > 2017	官田鋼</a>&nbsp;&nbsp;
+        <a href="{{ url_for('income', id=2022) }}" name='stock' id='2022' > 2022	聚亨</a>&nbsp;&nbsp;
+        <a href="{{ url_for('income', id=2024) }}" name='stock' id='2024' >2024	志聯 </a>&nbsp;&nbsp;
+        <a href="{{ url_for('income', id=2033) }}" name='stock' id='2033'> 2033	佳大</a>&nbsp;&nbsp;
+        <a href="{{ url_for('income', id=2211) }}" name='stock' id='2211' > 2211	長榮鋼</a>&nbsp;&nbsp;
+        <a href="{{ url_for('income', id=3004) }}" name='stock' id='3004'> 3004	豐達科</a>&nbsp;&nbsp;
+        <a href="{{ url_for('income', id=5007) }}" name='stock' id='5007' > 5007	三星</a>&nbsp;&nbsp;
+        <a href="{{ url_for('income', id=5538) }}" name='stock' id='5538'> 5538	東明-KY</a>&nbsp;&nbsp;
+       
+
+        
+        {% for s in stock %}
+          <a href="{{ url_for('home2') }}" name='stock' value='{{ s[0] }}' > {{ s[0] }} {{ s[1] }}</a>&nbsp;&nbsp;
+        {% endfor %}
+
+      </div>
+    </div>
+      
+
+    {% endblock %}

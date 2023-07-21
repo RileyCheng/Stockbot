@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}StockBot個股資訊{% endblock %}
+    {% block main %}
+    <div class="container" textalign='center'>
+      <h3 class="form-text">請輸入想查詢的股票號</h3>
+      <input type="text" class="form-control"  name="id" placeholder="輸入股票號">
+      <button type="submit" class="btn btn-secondary">確認</button>
+
+    <div class="container title">
+        <h2>3035 智原</h2>
+    </div>
+  
+  <div class="container wel">
+        <h3>技術分析</h3>
+    <hr class="my-4">
+      <select class="selectpicker" multiple title="選擇均線" data-width="45%">
+        <option>MA5</option>
+        <option>MA10</option>
+        <option>MA20</option>
+        <option>MA60</option>
+      </select>
+      <select class="selectpicker" multiple title="選擇指標" data-width="45%">
+        <option>KD</option>
+        <option>RSI5</option>
+        <option>RSI10</option>
+        <option>MACD</option>
+      </select>
+      <br><br>
+      <button type="button" class="btn btn-secondary">確認</button>
+      
+    <br><br>
+        <h5>image</h5>
+        <iframe scrolling="no" style="border:none;" seamless="seamless" 
+        src="https://stone0821.github.io/plotly/" 
+        height="400" width="100%">
+        </iframe>
+  </div>
+    {% endblock %}
+
+
+    
